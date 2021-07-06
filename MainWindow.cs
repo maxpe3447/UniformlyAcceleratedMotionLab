@@ -32,7 +32,7 @@ namespace UniformlyAcceleratedMotionLab
 
             lIfoAboutGraph.Text = gb.GetInfoOfSize() + $"\nКут = {GetAnAngle(gb.H, gb.L)}";
             ph = new Phisics(GetAnAngle(gb.H, gb.L));
-            lDebugLabel.Text = gb.GetCursorPos();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,13 +54,19 @@ namespace UniformlyAcceleratedMotionLab
             //richTextBox1.AppendText("№\tL\t\tH\t\tS\t\tКут\t\tЧас");
             if(gb.L == 0)
             {
-                MessageBox.Show("Не корректне використання програми", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Некоректне використання програми", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
             richTextBox1.AppendText($"{counter++}\t{gb.L}\t{gb.H}\t{gb.S.ToString("0.00")}\t{GetAnAngle(gb.H, gb.L)}\t{ph.GetTime(gb.S).ToString("0.000")}\n");
             }
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Instruction instructionForm = new Instruction();
+            instructionForm.Show();
         }
     }
 }
