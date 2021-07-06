@@ -14,11 +14,15 @@ namespace UniformlyAcceleratedMotionLab
     {
        
         GraphDrawing gb;
+        private int counter = 1;
+        Phisics ph;
         public MainWindow()
         {
             InitializeComponent();
             lIfoAboutGraph.Text = "Для початку роботи\nнатисніть на кнопку...";
             gb = new GraphDrawing(pictureBox1);
+            //richTextBox1.AppendText("Для перегляду інструкції використання натисніть кнопку у верхньому правому куті...");
+            richTextBox1.AppendText("№\tL\tH\tS\tКут\tЧас\n");
         }
         private double GetAnAngle(double h, double l) => (int)Math.Floor((Math.Atan(h/l)) * 180.0 / Math.PI) % 360; 
 
@@ -26,18 +30,37 @@ namespace UniformlyAcceleratedMotionLab
         {
             gb.CreateNewTriangle(this);
 
-            lIfoAboutGraph.Text = gb.GetInfoOfSize();
-            lDebugLabel.Text = gb.GetCursorPos() + "\n\n\n\n" + GetAnAngle(gb.H, gb.L);
+            lIfoAboutGraph.Text = gb.GetInfoOfSize() + $"\nКут = {GetAnAngle(gb.H, gb.L)}";
+            ph = new Phisics(GetAnAngle(gb.H, gb.L));
+            lDebugLabel.Text = gb.GetCursorPos();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            //richTextBox1.Clear();
+            //richTextBox1.AppendText("№\tL\tH\tS\tКут\tЧас\n");
+
             gb.FirstCreate();
             gb.DrawTriangle();
+
+            ph = new Phisics(GetAnAngle(gb.H, gb.L));
            
             lIfoAboutGraph.Text = gb.GetInfoOfSize();
-            lDebugLabel.Text = gb.GetCursorPos() + "\n" + gb.Angle;
+            lIfoAboutGraph.Text = gb.GetInfoOfSize() + $"\nКут = {GetAnAngle(gb.H, gb.L)}";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //richTextBox1.AppendText("№\tL\t\tH\t\tS\t\tКут\t\tЧас");
+            if(gb.L == 0)
+            {
+                MessageBox.Show("Не корректне використання програми", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+            richTextBox1.AppendText($"{counter++}\t{gb.L}\t{gb.H}\t{gb.S.ToString("0.00")}\t{GetAnAngle(gb.H, gb.L)}\t{ph.GetTime(gb.S).ToString("0.000")}\n");
+            }
+            
         }
     }
 }

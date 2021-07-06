@@ -39,6 +39,7 @@ namespace UniformlyAcceleratedMotionLab
             this.lDebugLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lIfoAboutGraph = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,7 @@ namespace UniformlyAcceleratedMotionLab
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1079, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1339, 33);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -86,21 +87,21 @@ namespace UniformlyAcceleratedMotionLab
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(747, 50);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(298, 265);
+            this.richTextBox1.Size = new System.Drawing.Size(508, 265);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(254, 506);
+            this.button1.Location = new System.Drawing.Point(5, 484);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(245, 63);
+            this.button1.Size = new System.Drawing.Size(262, 95);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Розрахувати";
+            this.button1.Text = "Почати роботу/згенерувати трикутник";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -133,11 +134,23 @@ namespace UniformlyAcceleratedMotionLab
             this.lIfoAboutGraph.Size = new System.Drawing.Size(0, 29);
             this.lIfoAboutGraph.TabIndex = 7;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(273, 484);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(245, 95);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Запам\'ятати результат";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 635);
+            this.ClientSize = new System.Drawing.Size(1339, 635);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.lIfoAboutGraph);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lDebugLabel);
@@ -167,6 +180,7 @@ namespace UniformlyAcceleratedMotionLab
         private System.Windows.Forms.Label lDebugLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lIfoAboutGraph;
+        private System.Windows.Forms.Button button2;
     }
 }
 

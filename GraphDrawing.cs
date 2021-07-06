@@ -114,7 +114,7 @@ namespace UniformlyAcceleratedMotionLab
             S = Math.Sqrt(Math.Pow(L, 2) + Math.Pow(H, 2));
         }
         private double CalcAnAngle() => (int)Math.Floor((Math.Atan(H / L)) * 180.0 / Math.PI) % 360;
-        public string GetInfoOfSize() => $"L = {L} m\nH = {H} m\nS = {S.ToString("0.000")} m\n-------------\n";
+        public string GetInfoOfSize() => $"L = {L} m\nH = {H} m\nS = {S.ToString("0.000")} m";
         public string GetCursorPos() => $"Pos: {newArbitrarilyPoint.X} -> {newArbitrarilyPoint.Y}\n";
 
     }
