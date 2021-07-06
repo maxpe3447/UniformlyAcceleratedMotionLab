@@ -17,7 +17,7 @@ namespace UniformlyAcceleratedMotionLab
         public MainWindow()
         {
             InitializeComponent();
-
+            lIfoAboutGraph.Text = "Для початку роботи\nнатисніть на кнопку...";
             gb = new GraphDrawing(pictureBox1);
         }
         private double GetAnAngle(double h, double l) => (int)Math.Floor((Math.Atan(h/l)) * 180.0 / Math.PI) % 360; 
@@ -25,18 +25,19 @@ namespace UniformlyAcceleratedMotionLab
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             gb.CreateNewTriangle(this);
-            
-            richTextBox1.AppendText(gb.GetInfoOfSize());
-            debugLabel.Text = gb.GetCursorPos() + "\n" + GetAnAngle(gb.H, gb.L);
+
+            lIfoAboutGraph.Text = gb.GetInfoOfSize();
+            lDebugLabel.Text = gb.GetCursorPos() + "\n\n\n\n" + GetAnAngle(gb.H, gb.L);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
             gb.FirstCreate();
+            gb.DrawTriangle();
            
-            richTextBox1.AppendText(gb.GetInfoOfSize());
-            debugLabel.Text = gb.GetCursorPos() + "\n" + gb.Angle;
+            lIfoAboutGraph.Text = gb.GetInfoOfSize();
+            lDebugLabel.Text = gb.GetCursorPos() + "\n" + gb.Angle;
         }
     }
 }
