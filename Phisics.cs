@@ -17,14 +17,14 @@ namespace UniformlyAcceleratedMotionLab
         }
 
         public double GetTime(double S) {
-            Random random = new Random();
+            Random random = new Random(DateTime.Now.Millisecond);
             if(random.Next() % 2 == 0)
             {
-                return Math.Sqrt(((2 * S) / a) + (random.Next(0, 500) / 100000));
+                return Math.Sqrt(((2 * S) / a) + (double)(random.Next(0, 5) / 100.0));
             }
             else
             {
-                return Math.Sqrt(((2 * S) / a) - (random.Next(0, 500) / 100000));
+                return Math.Sqrt(((2 * S) / a) - (double)(random.Next(0, 5) / 100.0));
             }
         }
     }
